@@ -10,7 +10,7 @@ namespace factories
 	{
 	public:
 		/// Creates a new workflow from the given JSON
-		static Processus creer(const nlohmann::basic_json<>& json);
+		static Processus* creer(const nlohmann::basic_json<>& json);
 	};
 }
 

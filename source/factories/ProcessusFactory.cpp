@@ -1,8 +1,9 @@
 #include "../../include/factories/ProcessusFactory.h"
 
+#include "../../include/factories/NoeudFactory.h"
 #include "../../library/json.hpp"
 
-Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
+Processus* factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
 {
 	constexpr auto START_KEY = "start";
 	constexpr auto NODES_KEY = "nodes";
@@ -19,26 +20,18 @@ Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
 	{
 		const auto& id = nodeProp.key();
 
-		// Load node
-		nodes::Noeud* node = nullptr;
+		nodes::Noeud* node = NoeudFactory::creer(nodeProp.value());
 
 		idToNode.insert({id, node});
 	}
 
 	// Get start
-	if (!json.contains(START_KEY))
-		throw std::invalid_argument("The property '" + std::string(START_KEY) + "' does not exist.");
+	const auto startId = json.at(START_KEY).get<std::string>();
+	const auto startNode = idToNode.find(startId);
 
-	const auto startProp = json.at(START_KEY);
-
-	if (!startProp.is_string())
-		throw std::invalid_argument("The property '" + std::string(START_KEY) + "' must be a string.");
-
-	const auto startNode = idToNode.find(startProp);
-
-	if (startNode == idToNode.end() || startNode->second == nullptr)
-		throw std::runtime_error("Failed to find the starting node '" + std::string(startProp) + "'.");
+	if (startNode == idToNode.end())
+		throw std::runtime_error("Failed to find the starting node '" + startId + "'.");
 
 	// Create workflow
-	return Processus(startNode->second);
+	return new Processus(startNode->second);
 }
