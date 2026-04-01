@@ -3,7 +3,7 @@
 #include "../../include/factories/NoeudFactory.h"
 #include "../../library/json.hpp"
 
-Processus* factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
+Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
 {
 	constexpr auto START_KEY = "start";
 	constexpr auto NODES_KEY = "nodes";
@@ -33,5 +33,8 @@ Processus* factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json
 		throw std::runtime_error("Failed to find the starting node '" + startId + "'.");
 
 	// Create workflow
-	return new Processus(startNode->second);
+	Processus workflow;
+	workflow.mettreDepart(startNode->second);
+
+	return workflow;
 }
