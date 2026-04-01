@@ -19,11 +19,6 @@ std::unique_ptr<nodes::INoeud> factories::NoeudFactory::creer(const nlohmann::ba
 	if (type == "assign")
 		return std::make_unique<nodes::tasks::EcrireVariableNoeud>();
 
-	if (type == "read")
-	{
-		// ...
-	}
-
 	if (type == "clear")
 	{
 		// ...

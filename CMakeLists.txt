@@ -20,7 +20,5 @@ add_executable(8inf334_TP3 main.cpp
         include/factories/NoeudFactory.h
         source/Contexte.cpp
         include/Contexte.h
-        source/nodes/tasks/LireVariableNoeud.cpp
-        include/nodes/tasks/LireVariableNoeud.h
         source/nodes/tasks/EffacerVariableNoeud.cpp
         include/nodes/tasks/EffacerVariableNoeud.h)
