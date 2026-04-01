@@ -11,6 +11,8 @@ namespace nodes::tasks
 
 	public:
 		TacheNoeud();
+		
+		INoeud* executer(Contexte& contexte) override;
 	};
 }
 

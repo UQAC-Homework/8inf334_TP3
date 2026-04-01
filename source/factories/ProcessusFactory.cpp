@@ -22,9 +22,9 @@ Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
 	{
 		const auto& id = nodeProp.key();
 
-		nodes::INoeud* node = NoeudFactory::creer(nodeProp.value());
+		auto node = NoeudFactory::creer(nodeProp.value());
 
-		workflow.ajouterNoeud(id, node);
+		workflow.ajouterNoeud(id, node.get());
 	}
 
 	// Get start

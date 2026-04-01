@@ -21,4 +21,10 @@ add_executable(8inf334_TP3 main.cpp
         source/Contexte.cpp
         include/Contexte.h
         source/nodes/tasks/EffacerVariableNoeud.cpp
-        include/nodes/tasks/EffacerVariableNoeud.h)
+        include/nodes/tasks/EffacerVariableNoeud.h
+        source/nodes/DepartNoeud.cpp
+        include/nodes/DepartNoeud.h
+        source/nodes/SortieNoeud.cpp
+        include/nodes/SortieNoeud.h
+        source/nodes/tasks/LireVariableNoeud.cpp
+        include/nodes/tasks/LireVariableNoeud.h)

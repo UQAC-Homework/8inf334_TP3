@@ -9,5 +9,5 @@ nodes::tasks::EffacerVariableNoeud::EffacerVariableNoeud()
 nodes::INoeud* nodes::tasks::EffacerVariableNoeud::executer(Contexte& contexte)
 {
 	contexte.retirerCle("aaa");
-	throw std::runtime_error("Not implemented");
+	return TacheNoeud::executer(contexte);
 }
