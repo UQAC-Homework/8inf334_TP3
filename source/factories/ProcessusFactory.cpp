@@ -1,5 +1,7 @@
 #include "../../include/factories/ProcessusFactory.h"
 
+#include <fstream>
+
 #include "../../include/factories/NoeudFactory.h"
 #include "../../library/json.hpp"
 
@@ -30,4 +32,16 @@ Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
 	workflow.mettreDepart(startId);
 
 	return workflow;
+}
+
+Processus factories::ProcessusFactory::creerDepuisFichier(const std::string& chemin)
+{
+	if (!std::filesystem::exists(chemin))
+		throw std::runtime_error("File at '" + chemin + "' does not exist.");
+
+	std::ifstream file(chemin);
+	const std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+	auto json = nlohmann::json::parse(content);
+
+	return creer(json);
 }
