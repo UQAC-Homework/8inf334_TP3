@@ -5,7 +5,7 @@ nodes::tasks::TacheNoeud::TacheNoeud(Noeud* noeud)
 	this->enfant = noeud;
 }
 
-nodes::Noeud* nodes::tasks::TacheNoeud::next()
+nodes::Noeud* nodes::tasks::TacheNoeud::prochain() const
 {
 	return this->enfant;
 }

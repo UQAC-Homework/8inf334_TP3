@@ -10,8 +10,8 @@ namespace nodes::tasks
 		Noeud* enfant;	
 	public:
 		TacheNoeud(Noeud* noeud);
-		
-		Noeud* prochain() const override;
+
+		[[nodiscard]] Noeud* prochain() const override;
 	};
 }
 
