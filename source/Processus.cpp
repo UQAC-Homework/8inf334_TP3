@@ -3,13 +3,12 @@
 Processus::Processus(nodes::Noeud* noeud)
 {
 	this->depart = noeud;
-	this->contexte = {};
 }
 
-void Processus::executer()
+void Processus::executer(Contexte contexte) const
 {
 	auto current = this->depart;
 	
 	while (current != nullptr)
-		current = current->executer();
+		current = current->executer(contexte);
 }
