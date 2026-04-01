@@ -4,3 +4,8 @@ nodes::tasks::TacheNoeud::TacheNoeud(Noeud* noeud)
 {
 	this->enfant = noeud;
 }
+
+nodes::Noeud* nodes::tasks::TacheNoeud::next()
+{
+	return this->enfant;
+}

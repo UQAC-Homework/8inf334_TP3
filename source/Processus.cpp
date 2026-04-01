@@ -7,5 +7,11 @@ Processus::Processus(nodes::Noeud* noeud)
 
 void Processus::executer()
 {
-	this->depart->execute();
+	auto current = this->depart;
+	
+	while (current != nullptr)
+	{
+		current->executer();
+		current = current->prochain();
+	}
 }
