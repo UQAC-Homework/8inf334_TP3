@@ -2,15 +2,10 @@
 
 #include "../../library/json.hpp"
 
-Processus factories::ProcessusFactory::creer(const std::string& texte)
+Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
 {
 	constexpr auto START_KEY = "start";
 	constexpr auto NODES_KEY = "nodes";
-
-	auto json = nlohmann::json::parse(texte);
-
-	if (!json.contains(NODES_KEY))
-		throw std::invalid_argument("The property '" + std::string(NODES_KEY) + "' does not exist.");
 
 	const auto& nodesProp = json.at(NODES_KEY);
 
