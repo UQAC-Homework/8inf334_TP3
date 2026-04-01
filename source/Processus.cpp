@@ -1,6 +1,6 @@
 #include "../include/Processus.h"
 
-Processus::Processus(nodes::Noeud* noeud)
+Processus::Processus(nodes::INoeud* noeud)
 {
 	this->depart = noeud;
 }

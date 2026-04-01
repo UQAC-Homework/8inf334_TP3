@@ -1,16 +1,16 @@
 #ifndef INC_8INF334_TP3_CONDITIONNOEUD_H
 #define INC_8INF334_TP3_CONDITIONNOEUD_H
-#include "../Noeud.h"
+#include "../INoeud.h"
 
 namespace nodes::conditions
 {
-	class ConditionNoeud : public Noeud
+	class ConditionNoeud : public INoeud
 	{
 	protected:
-		Noeud* enfantVrai;
-		Noeud* enfantFaux;
+		INoeud* enfantVrai;
+		INoeud* enfantFaux;
 	public:
-		ConditionNoeud(Noeud* enfantVrai, Noeud* enfantFaux);
+		ConditionNoeud(INoeud* enfantVrai, INoeud* enfantFaux);
 	};
 }
 

@@ -1,6 +1,6 @@
 #include "../../../include/nodes/conditions/ConditionNoeud.h"
 
-nodes::conditions::ConditionNoeud::ConditionNoeud(Noeud* enfantVrai, Noeud* enfantFaux)
+nodes::conditions::ConditionNoeud::ConditionNoeud(INoeud* enfantVrai, INoeud* enfantFaux)
 {
 	this->enfantVrai = enfantVrai;
 	this->enfantFaux = enfantFaux;

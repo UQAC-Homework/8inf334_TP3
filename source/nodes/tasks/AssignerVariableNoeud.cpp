@@ -2,11 +2,12 @@
 
 #include <stdexcept>
 
-nodes::tasks::AssignerVariableNoeud::AssignerVariableNoeud(Noeud* noeud) : TacheNoeud(noeud)
+nodes::tasks::AssignerVariableNoeud::AssignerVariableNoeud(INoeud* noeud) : TacheNoeud(noeud)
 {
 }
 
-nodes::Noeud* nodes::tasks::AssignerVariableNoeud::executer()
+nodes::INoeud* nodes::tasks::AssignerVariableNoeud::executer(Contexte& contexte)
 {
+	contexte.retirerCle("aaa");
 	throw std::runtime_error("Not implemented");
 }

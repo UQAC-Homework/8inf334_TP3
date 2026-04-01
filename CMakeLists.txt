@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(8inf334_TP3 main.cpp
         library/json.hpp
-        include/nodes/Noeud.h
+        include/nodes/INoeud.h
         source/nodes/tasks/TacheNoeud.cpp
         include/nodes/tasks/TacheNoeud.h
         source/nodes/tasks/AssignerVariableNoeud.cpp
@@ -13,4 +13,10 @@ add_executable(8inf334_TP3 main.cpp
         source/nodes/conditions/ConditionNoeud.cpp
         include/nodes/conditions/ConditionNoeud.h
         source/Processus.cpp
-        include/Processus.h)
+        include/Processus.h
+        source/factories/ProcessusFactory.cpp
+        include/factories/ProcessusFactory.h
+        source/factories/NoeudFactory.cpp
+        include/factories/NoeudFactory.h
+        source/Contexte.cpp
+        include/Contexte.h)

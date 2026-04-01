@@ -14,13 +14,13 @@ Processus* factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json
 		throw std::invalid_argument("The property '" + std::string(NODES_KEY) + "' must be an object.");
 
 	// Load nodes
-	auto idToNode = std::unordered_map<std::string, nodes::Noeud*>();
+	auto idToNode = std::unordered_map<std::string, nodes::INoeud*>();
 
 	for (const auto& nodeProp : nodesProp.items())
 	{
 		const auto& id = nodeProp.key();
 
-		nodes::Noeud* node = NoeudFactory::creer(nodeProp.value());
+		nodes::INoeud* node = NoeudFactory::creer(nodeProp.value());
 
 		idToNode.insert({id, node});
 	}

@@ -13,10 +13,11 @@ int main()
 
 	std::ifstream file(path);
 	const std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+	auto json = nlohmann::json::parse(content);
 
-	auto workflow = factories::ProcessusFactory::creer(content);
-	
-	//workflow->executer();
+	auto workflow = factories::ProcessusFactory::creer(json);
+
+	workflow->executer();
 	std::cout << "Hello, World!" << std::endl;
 	return 0;
 }

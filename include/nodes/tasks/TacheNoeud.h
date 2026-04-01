@@ -1,16 +1,16 @@
 #ifndef INC_8INF334_TP3_TACHENOEUD_H
 #define INC_8INF334_TP3_TACHENOEUD_H
-#include "../Noeud.h"
+#include "../INoeud.h"
 
 namespace nodes::tasks
 {
-	class TacheNoeud : public Noeud
+	class TacheNoeud : public INoeud
 	{
 	protected:
-		Noeud* enfant;
+		INoeud* enfant;
 
 	public:
-		TacheNoeud(Noeud* noeud);
+		TacheNoeud(INoeud* noeud);
 	};
 }
 

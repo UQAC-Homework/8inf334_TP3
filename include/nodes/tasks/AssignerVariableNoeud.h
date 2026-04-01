@@ -7,9 +7,9 @@ namespace nodes::tasks
 	class AssignerVariableNoeud : public TacheNoeud
 	{
 	public:
-		AssignerVariableNoeud(Noeud* noeud);
+		AssignerVariableNoeud(INoeud* noeud);
 
-		Noeud* executer() override;
+		INoeud* executer(Contexte& contexte) override;
 	};
 }
 
