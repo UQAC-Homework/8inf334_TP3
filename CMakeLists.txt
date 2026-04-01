@@ -11,4 +11,6 @@ add_executable(8inf334_TP3 main.cpp
         source/nodes/tasks/AssignerVariableNoeud.cpp
         include/nodes/tasks/AssignerVariableNoeud.h
         source/nodes/conditions/ConditionNoeud.cpp
-        include/nodes/conditions/ConditionNoeud.h)
+        include/nodes/conditions/ConditionNoeud.h
+        source/Processus.cpp
+        include/Processus.h)
