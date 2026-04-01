@@ -4,10 +4,10 @@
 
 namespace nodes::tasks
 {
-	class AssignerVariableNoeud : public TacheNoeud
+	class EcrireVariableNoeud : public TacheNoeud
 	{
 	public:
-		AssignerVariableNoeud(INoeud* noeud);
+		EcrireVariableNoeud();
 
 		INoeud* executer(Contexte& contexte) override;
 	};

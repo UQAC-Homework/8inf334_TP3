@@ -1,6 +1,5 @@
 #include "../../../include/nodes/tasks/TacheNoeud.h"
 
-nodes::tasks::TacheNoeud::TacheNoeud(INoeud* noeud)
+nodes::tasks::TacheNoeud::TacheNoeud()
 {
-	this->enfant = noeud;
 }

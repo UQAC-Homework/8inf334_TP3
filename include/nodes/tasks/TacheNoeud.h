@@ -10,7 +10,7 @@ namespace nodes::tasks
 		INoeud* enfant;
 
 	public:
-		TacheNoeud(INoeud* noeud);
+		TacheNoeud();
 	};
 }
 

@@ -9,7 +9,7 @@ namespace factories
 	{
 	public:
 		/// Creates a node from the given object
-		static nodes::INoeud* creer(const nlohmann::basic_json<>& json);
+		static std::unique_ptr<nodes::INoeud> creer(const nlohmann::basic_json<>& json);
 	};
 }
 

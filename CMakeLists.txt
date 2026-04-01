@@ -8,8 +8,8 @@ add_executable(8inf334_TP3 main.cpp
         include/nodes/INoeud.h
         source/nodes/tasks/TacheNoeud.cpp
         include/nodes/tasks/TacheNoeud.h
-        source/nodes/tasks/AssignerVariableNoeud.cpp
-        include/nodes/tasks/AssignerVariableNoeud.h
+        source/nodes/tasks/EcrireVariableNoeud.cpp
+        include/nodes/tasks/EcrireVariableNoeud.h
         source/nodes/conditions/ConditionNoeud.cpp
         include/nodes/conditions/ConditionNoeud.h
         source/Processus.cpp
@@ -19,4 +19,8 @@ add_executable(8inf334_TP3 main.cpp
         source/factories/NoeudFactory.cpp
         include/factories/NoeudFactory.h
         source/Contexte.cpp
-        include/Contexte.h)
+        include/Contexte.h
+        source/nodes/tasks/LireVariableNoeud.cpp
+        include/nodes/tasks/LireVariableNoeud.h
+        source/nodes/tasks/EffacerVariableNoeud.cpp
+        include/nodes/tasks/EffacerVariableNoeud.h)

@@ -10,7 +10,7 @@ namespace nodes::conditions
 		INoeud* enfantVrai;
 		INoeud* enfantFaux;
 	public:
-		ConditionNoeud(INoeud* enfantVrai, INoeud* enfantFaux);
+		ConditionNoeud();
 	};
 }
 

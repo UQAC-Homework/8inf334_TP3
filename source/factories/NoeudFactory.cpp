@@ -1,8 +1,8 @@
 #include "../../include/factories/NoeudFactory.h"
 
-#include "../../include/nodes/tasks/AssignerVariableNoeud.h"
+#include "../../include/nodes/tasks/EcrireVariableNoeud.h"
 
-nodes::INoeud* factories::NoeudFactory::creer(const nlohmann::basic_json<>& json)
+std::unique_ptr<nodes::INoeud> factories::NoeudFactory::creer(const nlohmann::basic_json<>& json)
 {
 	const auto type = json.at("type").get<std::string>();
 
@@ -17,9 +17,7 @@ nodes::INoeud* factories::NoeudFactory::creer(const nlohmann::basic_json<>& json
 	}
 
 	if (type == "assign")
-	{
-		// ...
-	}
+		return std::make_unique<nodes::tasks::EcrireVariableNoeud>();
 
 	if (type == "read")
 	{
@@ -31,6 +29,5 @@ nodes::INoeud* factories::NoeudFactory::creer(const nlohmann::basic_json<>& json
 		// ...
 	}
 
-	return nullptr;
 	throw std::runtime_error("Failed to create a node for the type '" + type + "'.");
 }
