@@ -1,0 +1,35 @@
+{
+  "start": "111",
+  "nodes": {
+    "111": {
+      "type": "start",
+      "next": "112"
+    },
+    "112": {
+      "type": "assign",
+      "parameters": {
+        "name": "ma_variable",
+        "value": "abcde"
+      },
+      "next": "113"
+    },
+    "113": {
+      "type": "read",
+      "parameters": {
+        "name": "ma_variable",
+        "level": "debug"
+      },
+      "next": "114"
+    },
+    "114": {
+      "type": "clear",
+      "parameters": {
+        "name": "ma_variable"
+      },
+      "next": "115"
+    },
+    "115": {
+      "type": "end"
+    }
+  }
+}
