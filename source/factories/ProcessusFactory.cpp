@@ -14,7 +14,7 @@ Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
 		throw std::invalid_argument("The property '" + std::string(NODES_KEY) + "' must be an object.");
 
 	// Load nodes
-	auto idToNode = std::unordered_map<std::string, nodes::INoeud*>();
+	Processus workflow;
 
 	for (const auto& nodeProp : nodesProp.items())
 	{
@@ -22,19 +22,12 @@ Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
 
 		nodes::INoeud* node = NoeudFactory::creer(nodeProp.value());
 
-		idToNode.insert({id, node});
+		workflow.ajouterNoeud(id, node);
 	}
 
 	// Get start
 	const auto startId = json.at(START_KEY).get<std::string>();
-	const auto startNode = idToNode.find(startId);
-
-	if (startNode == idToNode.end())
-		throw std::runtime_error("Failed to find the starting node '" + startId + "'.");
-
-	// Create workflow
-	Processus workflow;
-	workflow.mettreDepart(startNode->second);
+	workflow.mettreDepart(startId);
 
 	return workflow;
 }
