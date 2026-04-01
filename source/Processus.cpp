@@ -1,9 +1,9 @@
 #include "../include/Processus.h"
 
-Processus::Processus(nodes::Noeud* noeud, const Contexte& contexte = {})
+Processus::Processus(nodes::Noeud* noeud)
 {
 	this->depart = noeud;
-	this->contexte = contexte;
+	this->contexte = {};
 }
 
 void Processus::executer()

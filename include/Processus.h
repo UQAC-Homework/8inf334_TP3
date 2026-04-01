@@ -3,7 +3,6 @@
 #include "Contexte.h"
 #include "nodes/Noeud.h"
 
-
 class Processus
 {
 private:
@@ -11,11 +10,10 @@ private:
 	Contexte contexte;
 
 public:
-	explicit Processus(nodes::Noeud* noeud, const Contexte& contexte);
+	explicit Processus(nodes::Noeud* noeud);
 
 	/// Executes the whole workflow
 	void executer();
 };
-
 
 #endif //INC_8INF334_TP3_PROCESSUS_H
