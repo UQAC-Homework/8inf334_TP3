@@ -6,7 +6,7 @@ nodes::tasks::AssignerVariableNoeud::AssignerVariableNoeud(Noeud* noeud) : Tache
 {
 }
 
-void nodes::tasks::AssignerVariableNoeud::execute()
+nodes::Noeud* nodes::tasks::AssignerVariableNoeud::executer()
 {
 	throw std::runtime_error("Not implemented");
 }

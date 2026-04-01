@@ -9,7 +9,7 @@ namespace nodes::tasks
 	public:
 		AssignerVariableNoeud(Noeud* noeud);
 
-		void execute() override;
+		Noeud* executer() override;
 	};
 }
 

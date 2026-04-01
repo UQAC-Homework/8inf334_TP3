@@ -9,10 +9,7 @@ namespace nodes
 		virtual ~Noeud() = default;
 
 		/// Executes this node
-		virtual void executer() = 0;
-		
-		/// Gets the next node to execute
-		[[nodiscard]] virtual Noeud* prochain() const = 0;
+		[[nodiscard]] virtual Noeud* executer() = 0;
 	};
 }
 

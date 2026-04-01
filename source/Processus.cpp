@@ -10,8 +10,5 @@ void Processus::executer()
 	auto current = this->depart;
 	
 	while (current != nullptr)
-	{
-		current->executer();
-		current = current->prochain();
-	}
+		current = current->executer();
 }

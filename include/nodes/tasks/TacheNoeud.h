@@ -7,11 +7,10 @@ namespace nodes::tasks
 	class TacheNoeud : public Noeud
 	{
 	protected:
-		Noeud* enfant;	
+		Noeud* enfant;
+
 	public:
 		TacheNoeud(Noeud* noeud);
-
-		[[nodiscard]] Noeud* prochain() const override;
 	};
 }
 
