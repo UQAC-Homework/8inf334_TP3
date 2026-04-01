@@ -1,6 +1,11 @@
 #include "../include/Processus.h"
 
-Processus::Processus(nodes::INoeud* noeud)
+Processus::Processus()
+{
+	this->depart = nullptr;
+}
+
+void Processus::mettreDepart(nodes::INoeud* noeud)
 {
 	this->depart = noeud;
 }

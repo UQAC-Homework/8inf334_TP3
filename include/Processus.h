@@ -9,7 +9,10 @@ private:
 	nodes::INoeud* depart;
 
 public:
-	explicit Processus(nodes::INoeud* noeud);
+	explicit Processus();
+	
+	/// Assigns the given node as the starting node
+	void mettreDepart(nodes::INoeud* noeud);
 
 	/// Executes the whole workflow
 	void executer(Contexte contexte = {}) const;
