@@ -4,6 +4,7 @@
 #include "../../include/nodes/SortieNoeud.h"
 #include "../../include/nodes/tasks/EcrireVariableNoeud.h"
 #include "../../include/nodes/tasks/EffacerVariableNoeud.h"
+#include "../../include/nodes/tasks/LireVariableNoeud.h"
 
 std::unique_ptr<nodes::INoeud> factories::NoeudFactory::creer(const nlohmann::basic_json<>& json)
 {

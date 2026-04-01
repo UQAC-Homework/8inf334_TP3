@@ -14,7 +14,7 @@ void Processus::mettreDepart(const std::string& id)
 	if (node == this->nodes.end())
 		throw std::runtime_error("Failed to find the node '" + id + "'.");
 
-	this->depart = node->second;
+	this->depart = node->second.get();
 }
 
 void Processus::executer(Contexte contexte) const
@@ -25,7 +25,7 @@ void Processus::executer(Contexte contexte) const
 		current = current->executer(contexte);
 }
 
-void Processus::ajouterNoeud(const std::string& id, nodes::INoeud* node)
+void Processus::ajouterNoeud(const std::string& id, std::unique_ptr<nodes::INoeud>& node)
 {
-	this->nodes.insert_or_assign(id, node);
+	this->nodes[id] = std::move(node);
 }
