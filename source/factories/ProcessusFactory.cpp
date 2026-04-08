@@ -9,6 +9,7 @@ Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
 {
 	constexpr auto START_KEY = "start";
 	constexpr auto NODES_KEY = "nodes";
+	constexpr auto PARAMETERS_KEY = "parameters";
 
 	const auto& nodesProp = json.at(NODES_KEY);
 
@@ -17,15 +18,26 @@ Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
 
 	// Load nodes
 	Processus workflow;
+	std::unordered_map<std::string, nodes::INoeud*> nodes;
 
 	for (const auto& nodeProp : nodesProp.items())
 	{
 		const auto& id = nodeProp.key();
 
 		auto node = NoeudFactory::creer(nodeProp.value());
+		const auto paramsProp = nodeProp.value().at(PARAMETERS_KEY);
 
+		if (!paramsProp.is_object())
+			throw std::invalid_argument("The property '" + std::string(PARAMETERS_KEY) + "' must be an object.");
+
+		node->configurer(paramsProp);
+		nodes[id] = node.get();
 		workflow.ajouterNoeud(id, node);
 	}
+
+	// Link nodes
+	for (const auto& node : nodes | std::views::values)
+		node->lier(nodes);
 
 	// Get start
 	const auto startId = json.at(START_KEY).get<std::string>();
