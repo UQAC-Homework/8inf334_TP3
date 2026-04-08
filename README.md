@@ -1,0 +1,1 @@
+data manipulation (read/write), conditional branching (if/else), and looping (iteration/recursion). Key functions include basic arithmetic (add, subtract), logic (AND, OR, NOT)
