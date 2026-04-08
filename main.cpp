@@ -1,10 +1,14 @@
 #include <filesystem>
 #include <fstream>
+#include <iostream>
 
+#include "include/Enregistreur.h"
 #include "include/factories/ProcessusFactory.h"
 
 int main()
 {
+	Enregistreur::initialiser(std::cout);
+
 	const std::string path = "data/test.json";
 
 	const auto workflow = factories::ProcessusFactory::creerDepuisFichier(path);

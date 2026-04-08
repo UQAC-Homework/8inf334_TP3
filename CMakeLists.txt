@@ -27,4 +27,7 @@ add_executable(8inf334_TP3 main.cpp
         source/nodes/SortieNoeud.cpp
         include/nodes/SortieNoeud.h
         source/nodes/tasks/LireVariableNoeud.cpp
-        include/nodes/tasks/LireVariableNoeud.h)
+        include/nodes/tasks/LireVariableNoeud.h
+        include/Enregistreur.h
+        source/Enregistreur.cpp
+        include/utils/string.h)

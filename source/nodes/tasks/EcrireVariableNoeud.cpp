@@ -1,6 +1,9 @@
 #include "../../../include/nodes/tasks/EcrireVariableNoeud.h"
 
-nodes::tasks::EcrireVariableNoeud::EcrireVariableNoeud() : TacheNoeud()
+#include "../../../include/Enregistreur.h"
+#include "../../../include/utils/string.h"
+
+nodes::tasks::EcrireVariableNoeud::EcrireVariableNoeud()
 {
 	this->cle = std::nullopt;
 	this->valeur = std::nullopt;
@@ -14,6 +17,10 @@ nodes::INoeud* nodes::tasks::EcrireVariableNoeud::executer(Contexte& contexte)
 	if (!this->valeur.has_value())
 		throw std::runtime_error("No value was assigned.");
 
+	const auto key = this->cle.value();
+	const auto value = this->valeur.value();
+
+	Enregistreur::enregistrer("Writing '" + utils::string::to_string(value) + "' to '" + key + "'.");
 	contexte.mettreValeur(this->cle.value(), this->valeur.value());
 	return TacheNoeud::executer(contexte);
 }

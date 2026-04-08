@@ -2,6 +2,7 @@
 
 #include <fstream>
 
+#include "../../include/Enregistreur.h"
 #include "../../include/factories/NoeudFactory.h"
 #include "../../library/json.hpp"
 
@@ -45,9 +46,15 @@ Processus factories::ProcessusFactory::creerDepuisFichier(const std::string& che
 	if (!std::filesystem::exists(chemin))
 		throw std::runtime_error("File at '" + chemin + "' does not exist.");
 
+	Enregistreur::enregistrer("Loading file '" + chemin + "'...");
 	std::ifstream file(chemin);
-	const std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+	const std::string content((std::istreambuf_iterator(file)), std::istreambuf_iterator<char>());
 	auto json = nlohmann::json::parse(content);
+	Enregistreur::enregistrer("File '" + chemin + "' loaded.");
 
-	return creer(json);
+	Enregistreur::enregistrer("Creating a workflow...");
+	auto workflow = creer(json);
+	Enregistreur::enregistrer("Worklow created from '" + chemin + "'.");
+
+	return workflow;
 }

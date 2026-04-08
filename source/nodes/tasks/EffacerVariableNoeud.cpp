@@ -1,5 +1,7 @@
 #include "../../../include/nodes/tasks/EffacerVariableNoeud.h"
 
+#include "../../../include/Enregistreur.h"
+
 nodes::tasks::EffacerVariableNoeud::EffacerVariableNoeud()
 {
 	this->cle = std::nullopt;
@@ -7,11 +9,13 @@ nodes::tasks::EffacerVariableNoeud::EffacerVariableNoeud()
 
 nodes::INoeud* nodes::tasks::EffacerVariableNoeud::executer(Contexte& contexte)
 {
-	if (this->cle.has_value())
-	{
-		const auto key = this->cle.value();
-		contexte.retirerCle(key);
-	}
+	if (!this->cle.has_value())
+		throw std::runtime_error("No key was assigned.");
+
+	const auto key = this->cle.value();
+
+	Enregistreur::enregistrer("Clearing '" + key + "'.");
+	contexte.retirerCle(key);
 
 	return TacheNoeud::executer(contexte);
 }

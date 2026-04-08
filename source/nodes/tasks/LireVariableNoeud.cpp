@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "../../../include/utils/string.h"
+
 nodes::tasks::LireVariableNoeud::LireVariableNoeud()
 {
 	this->cle = std::nullopt;
@@ -18,7 +20,7 @@ nodes::INoeud* nodes::tasks::LireVariableNoeud::executer(Contexte& contexte)
 	{
 		const auto value = contexte.obtenirValeur(key);
 
-		std::cout << std::any_cast<std::string>(value) << std::endl;
+		std::cout << utils::string::to_string(value) << std::endl;
 	}
 	else
 		std::cout << "No value found for '" + key + "'." << std::endl;
