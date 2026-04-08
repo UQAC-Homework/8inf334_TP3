@@ -1,3 +1,5 @@
+#include <utility>
+
 #include "../include/Contexte.h"
 
 Contexte::Contexte()
@@ -9,7 +11,7 @@ Contexte::~Contexte() = default;
 
 void Contexte::mettreValeur(const std::string& cle, std::any valeur)
 {
-	this->donnees.insert_or_assign(cle, valeur);
+	this->donnees[cle] = std::move(valeur);
 }
 
 std::any Contexte::obtenirValeur(const std::string& cle) const
