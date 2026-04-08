@@ -6,10 +6,16 @@ namespace nodes::tasks
 {
 	class EcrireVariableNoeud : public TacheNoeud
 	{
+	private:
+		std::optional<std::string> cle;
+		std::optional<std::any> valeur;
+
 	public:
 		EcrireVariableNoeud();
 
 		INoeud* executer(Contexte& contexte) override;
+
+		void configurer(const nlohmann::basic_json<>& json) override;
 	};
 }
 

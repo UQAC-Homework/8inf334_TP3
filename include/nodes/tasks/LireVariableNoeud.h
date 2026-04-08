@@ -6,10 +6,14 @@ namespace nodes::tasks
 {
 	class LireVariableNoeud : public TacheNoeud
 	{
+	private:
+		std::optional<std::string> cle;
+
 	public:
 		LireVariableNoeud();
 
 		INoeud* executer(Contexte& contexte) override;
+		void configurer(const nlohmann::basic_json<>& json) override;
 	};
 };
 
