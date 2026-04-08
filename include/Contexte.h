@@ -1,23 +1,25 @@
 #ifndef INC_8INF334_TP3_CONTEXTE_H
 #define INC_8INF334_TP3_CONTEXTE_H
-#include <any>
 #include <map>
 #include <string>
+#include <variant>
+
+typedef std::variant<int, double, std::string, const char*> CONTEXT_VALUE;
 
 class Contexte
 {
 private:
-	std::map<std::string, std::any> donnees;
+	std::map<std::string, CONTEXT_VALUE> donnees;
 
 public:
 	Contexte();
 	~Contexte();
 
 	/// Assigns the given value to the given key
-	void mettreValeur(const std::string& cle, std::any valeur);
+	void mettreValeur(const std::string& cle, CONTEXT_VALUE valeur);
 
 	/// Gets the value associated to the given key
-	std::any obtenirValeur(const std::string& cle) const;
+	CONTEXT_VALUE obtenirValeur(const std::string& cle) const;
 
 	/// Checks if the given key is present
 	bool contientCle(const std::string& cle) const;
