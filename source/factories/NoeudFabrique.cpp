@@ -14,13 +14,13 @@ std::unique_ptr<nodes::INoeud> factories::NoeudFabrique::creerVide(const std::st
 	if (type == "end")
 		return std::make_unique<nodes::SortieNoeud>();
 
-	if (type == "assign")
+	if (type == "write")
 		return std::make_unique<nodes::tasks::EcrireVariableNoeud>();
 
 	if (type == "read")
 		return std::make_unique<nodes::tasks::LireVariableNoeud>();
 
-	if (type == "clear")
+	if (type == "erase")
 		return std::make_unique<nodes::tasks::EffacerVariableNoeud>();
 
 	throw std::runtime_error("Failed to create a node for the type '" + type + "'.");
