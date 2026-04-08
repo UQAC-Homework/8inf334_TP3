@@ -7,6 +7,10 @@ namespace factories
 {
 	class NoeudFactory
 	{
+	private:
+		/// Creates an empty node of the given type
+		static std::unique_ptr<nodes::INoeud> creerVide(const std::string& type);
+
 	public:
 		/// Creates a node from the given object
 		static std::unique_ptr<nodes::INoeud> creer(const nlohmann::basic_json<>& json);
