@@ -8,7 +8,7 @@
       }
     },
     "112": {
-      "type": "assign",
+      "type": "write",
       "parameters": {
         "name": "ma_variable",
         "value": "abcde",
@@ -23,7 +23,7 @@
       }
     },
     "114": {
-      "type": "clear",
+      "type": "erase",
       "parameters": {
         "name": "ma_variable",
         "next": "115"

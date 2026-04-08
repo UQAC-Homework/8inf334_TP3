@@ -1,0 +1,66 @@
+{
+  "start": "0",
+  "nodes": {
+    "0": {
+      "type": "start",
+      "parameters": {
+        "next": "1"
+      }
+    },
+    "1": {
+      "type": "write",
+      "parameters": {
+        "name": "foo",
+        "value": "123",
+        "next": "2"
+      }
+    },
+    "2": {
+      "type": "write",
+      "parameters": {
+        "name": "bar",
+        "value": "123",
+        "next": "3"
+      }
+    },
+    "3": {
+      "type": "write",
+      "parameters": {
+        "name": "foobar",
+        "value": "1234",
+        "next": "4"
+      }
+    },
+    "4": {
+      "type": "equal",
+      "parameters": {
+        "names": [
+          "foo",
+          "bar",
+          "foobar"
+        ],
+        "next_true": "6",
+        "next_false": "5"
+      }
+    },
+    "5": {
+      "type": "write",
+      "parameters": {
+        "name": "foobar",
+        "value": "123",
+        "next": "7"
+      }
+    },
+    "6": {
+      "type": "read",
+      "parameters": {
+        "name": "foobar",
+        "next": "7"
+      }
+    },
+    "7": {
+      "type": "end",
+      "parameters": {}
+    }
+  }
+}

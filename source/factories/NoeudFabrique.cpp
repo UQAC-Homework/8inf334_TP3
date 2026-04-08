@@ -3,6 +3,7 @@
 #include "../../include/nodes/DepartNoeud.h"
 #include "../../include/nodes/SortieNoeud.h"
 #include "../../include/nodes/conditions/EgalConditionNoeud.h"
+#include "../../include/nodes/tasks/AfficherTexteNoeud.h"
 #include "../../include/nodes/tasks/EcrireVariableNoeud.h"
 #include "../../include/nodes/tasks/EffacerVariableNoeud.h"
 #include "../../include/nodes/tasks/LireVariableNoeud.h"
@@ -26,6 +27,9 @@ std::unique_ptr<nodes::INoeud> factories::NoeudFabrique::creerVide(const std::st
 	
 	if (type == "equal")
 		return std::make_unique<nodes::conditions::EgalConditionNoeud>();
+	
+	if (type == "print")
+		return std::make_unique<nodes::tasks::AfficherTexteNoeud>();
 
 	throw std::runtime_error("Failed to create a node for the type '" + type + "'.");
 }
