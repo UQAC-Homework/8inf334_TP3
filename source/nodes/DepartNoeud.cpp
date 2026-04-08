@@ -13,14 +13,11 @@ nodes::INoeud* nodes::DepartNoeud::executer(Contexte& contexte)
 
 void nodes::DepartNoeud::configurer(const nlohmann::basic_json<>& json)
 {
-	INoeud::configurer(json);
 	this->enfantId = json.at("next").get<std::string>();
 }
 
 void nodes::DepartNoeud::lier(const std::unordered_map<std::string, INoeud*>& noeuds)
 {
-	INoeud::lier(noeuds);
-	
 	if (!this->enfantId.has_value())
 		throw std::runtime_error("No ID was assigned for the next node.");
 

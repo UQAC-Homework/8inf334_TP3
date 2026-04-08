@@ -15,14 +15,10 @@ namespace nodes
 		[[nodiscard]] virtual INoeud* executer(Contexte& contexte) = 0;
 
 		/// Configures this node with the given parameters
-		virtual void configurer(const nlohmann::basic_json<>& json)
-		{
-		}
+		virtual void configurer(const nlohmann::basic_json<>& json) = 0;
 
 		/// Links the related nodes to the loaded nodes
-		virtual void lier(const std::unordered_map<std::string, INoeud*>& noeuds)
-		{
-		}
+		virtual void lier(const std::unordered_map<std::string, INoeud*>& noeuds) = 0;
 	};
 }
 
