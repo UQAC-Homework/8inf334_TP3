@@ -14,10 +14,10 @@ add_executable(8inf334_TP3 main.cpp
         include/nodes/conditions/ConditionNoeud.h
         source/Processus.cpp
         include/Processus.h
-        source/factories/ProcessusFactory.cpp
-        include/factories/ProcessusFactory.h
-        source/factories/NoeudFactory.cpp
-        include/factories/NoeudFactory.h
+        source/factories/ProcessusFabrique.cpp
+        include/factories/ProcessusFabrique.h
+        source/factories/NoeudFabrique.cpp
+        include/factories/NoeudFabrique.h
         source/Contexte.cpp
         include/Contexte.h
         source/nodes/tasks/EffacerVariableNoeud.cpp

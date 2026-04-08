@@ -5,7 +5,7 @@
 
 namespace factories
 {
-	class NoeudFactory
+	class NoeudFabrique
 	{
 	private:
 		/// Creates an empty node of the given type

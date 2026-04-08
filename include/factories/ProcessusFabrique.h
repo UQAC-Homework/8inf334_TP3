@@ -6,7 +6,7 @@
 
 namespace factories
 {
-	class ProcessusFactory
+	class ProcessusFabrique
 	{
 	public:
 		/// Creates a new workflow from the given JSON

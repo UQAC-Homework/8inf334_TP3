@@ -1,4 +1,4 @@
-#include "../../include/factories/NoeudFactory.h"
+#include "../../include/factories/NoeudFabrique.h"
 
 #include "../../include/nodes/DepartNoeud.h"
 #include "../../include/nodes/SortieNoeud.h"
@@ -6,7 +6,7 @@
 #include "../../include/nodes/tasks/EffacerVariableNoeud.h"
 #include "../../include/nodes/tasks/LireVariableNoeud.h"
 
-std::unique_ptr<nodes::INoeud> factories::NoeudFactory::creerVide(const std::string& type)
+std::unique_ptr<nodes::INoeud> factories::NoeudFabrique::creerVide(const std::string& type)
 {
 	if (type == "start")
 		return std::make_unique<nodes::DepartNoeud>();
@@ -26,7 +26,7 @@ std::unique_ptr<nodes::INoeud> factories::NoeudFactory::creerVide(const std::str
 	throw std::runtime_error("Failed to create a node for the type '" + type + "'.");
 }
 
-std::unique_ptr<nodes::INoeud> factories::NoeudFactory::creer(const nlohmann::basic_json<>& json)
+std::unique_ptr<nodes::INoeud> factories::NoeudFabrique::creer(const nlohmann::basic_json<>& json)
 {
 	constexpr auto PARAMETERS_KEY = "parameters";
 

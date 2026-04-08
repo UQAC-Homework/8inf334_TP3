@@ -1,12 +1,12 @@
-#include "../../include/factories/ProcessusFactory.h"
+#include "../../include/factories/ProcessusFabrique.h"
 
 #include <fstream>
 
 #include "../../include/Enregistreur.h"
-#include "../../include/factories/NoeudFactory.h"
+#include "../../include/factories/NoeudFabrique.h"
 #include "../../library/json.hpp"
 
-Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
+Processus factories::ProcessusFabrique::creer(const nlohmann::basic_json<>& json)
 {
 	constexpr auto START_KEY = "start";
 	constexpr auto NODES_KEY = "nodes";
@@ -24,7 +24,7 @@ Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
 	{
 		const auto& id = nodeProp.key();
 
-		auto node = NoeudFactory::creer(nodeProp.value());
+		auto node = NoeudFabrique::creer(nodeProp.value());
 
 		nodes[id] = node.get();
 		workflow.ajouterNoeud(id, node);
@@ -41,7 +41,7 @@ Processus factories::ProcessusFactory::creer(const nlohmann::basic_json<>& json)
 	return workflow;
 }
 
-Processus factories::ProcessusFactory::creerDepuisFichier(const std::string& chemin)
+Processus factories::ProcessusFabrique::creerDepuisFichier(const std::string& chemin)
 {
 	if (!std::filesystem::exists(chemin))
 		throw std::runtime_error("File at '" + chemin + "' does not exist.");
