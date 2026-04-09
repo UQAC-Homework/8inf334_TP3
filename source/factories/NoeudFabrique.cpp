@@ -50,7 +50,7 @@ std::unique_ptr<nodes::INoeud> factories::NoeudFabrique::creer(const nlohmann::b
 
 	auto node = creerVide(type);
 
-	const auto paramsProp = json.at(PARAMETERS_KEY);
+	const auto& paramsProp = json.at(PARAMETERS_KEY);
 
 	if (!paramsProp.is_object())
 		throw std::invalid_argument("The property '" + std::string(PARAMETERS_KEY) + "' must be an object.");
