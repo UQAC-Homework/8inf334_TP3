@@ -8,6 +8,7 @@
 #include "../../include/nodes/tasks/AfficherTexteNoeud.h"
 #include "../../include/nodes/tasks/EcrireVariableNoeud.h"
 #include "../../include/nodes/tasks/EffacerVariableNoeud.h"
+#include "../../include/nodes/tasks/IncrementerVariableNoeud.h"
 #include "../../include/nodes/tasks/LireVariableNoeud.h"
 
 std::unique_ptr<nodes::INoeud> factories::NoeudFabrique::creerVide(const std::string& type)
@@ -26,6 +27,9 @@ std::unique_ptr<nodes::INoeud> factories::NoeudFabrique::creerVide(const std::st
 
 	if (type == "erase")
 		return std::make_unique<nodes::tasks::EffacerVariableNoeud>();
+	
+	if (type == "add")
+		return std::make_unique<nodes::tasks::IncrementerVariableNoeud>();
 
 	if (type == "equal")
 		return std::make_unique<nodes::conditions::EgalConditionNoeud>();

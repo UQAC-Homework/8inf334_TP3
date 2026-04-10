@@ -37,4 +37,6 @@ add_executable(8inf334_TP3 main.cpp
         source/nodes/conditions/PlusPetitConditionNoeud.cpp
         include/nodes/conditions/PlusPetitConditionNoeud.h
         source/nodes/conditions/PlusGrandConditionNoeud.cpp
-        include/nodes/conditions/PlusGrandConditionNoeud.h)
+        include/nodes/conditions/PlusGrandConditionNoeud.h
+        include/nodes/tasks/IncrementerVariableNoeud.h
+        source/nodes/tasks/IncrementerVariableNoeud.cpp)
