@@ -2,9 +2,7 @@
 
 #include "../../include/nodes/DepartNoeud.h"
 #include "../../include/nodes/SortieNoeud.h"
-#include "../../include/nodes/conditions/EgalConditionNoeud.h"
-#include "../../include/nodes/conditions/PlusGrandConditionNoeud.h"
-#include "../../include/nodes/conditions/PlusPetitConditionNoeud.h"
+#include "../../include/nodes/conditions/ConditionNoeud.h"
 #include "../../include/nodes/tasks/AfficherTexteNoeud.h"
 #include "../../include/nodes/tasks/EcrireVariableNoeud.h"
 #include "../../include/nodes/tasks/EffacerVariableNoeud.h"
@@ -31,14 +29,8 @@ std::unique_ptr<nodes::INoeud> factories::NoeudFabrique::creerVide(const std::st
 	if (type == "add")
 		return std::make_unique<nodes::tasks::IncrementerVariableNoeud>();
 
-	if (type == "equal")
-		return std::make_unique<nodes::conditions::EgalConditionNoeud>();
-
-	if (type == "less")
-		return std::make_unique<nodes::conditions::PlusPetitConditionNoeud>();
-
-	if (type == "greater")
-		return std::make_unique<nodes::conditions::PlusGrandConditionNoeud>();
+	if (type == "equal" || type == "less" || type == "greater")
+		return std::make_unique<nodes::conditions::ConditionNoeud>(type);
 
 	if (type == "print")
 		return std::make_unique<nodes::tasks::AfficherTexteNoeud>();

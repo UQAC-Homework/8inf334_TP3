@@ -1,6 +1,7 @@
 #ifndef INC_8INF334_TP3_CONDITIONNOEUD_H
 #define INC_8INF334_TP3_CONDITIONNOEUD_H
 #include "../INoeud.h"
+#include "../../strategies/IStrategie.h"
 
 namespace nodes::conditions
 {
@@ -10,15 +11,15 @@ namespace nodes::conditions
 		std::optional<std::string> enfantVraiId;
 		std::optional<std::string> enfantFauxId;
 
+		std::string type;
+		strategies::IStrategie* strategie;
+
 	protected:
 		INoeud* enfantVrai;
 		INoeud* enfantFaux;
 
-		/// Executes the conditional check
-		virtual bool executerCondition(Contexte& contexte) = 0;
-
 	public:
-		ConditionNoeud();
+		ConditionNoeud(const std::string& type);
 
 		INoeud* executer(Contexte& contexte) override;
 		void configurer(const nlohmann::basic_json<>& json) override;

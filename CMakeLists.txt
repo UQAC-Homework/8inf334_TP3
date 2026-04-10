@@ -30,13 +30,14 @@ add_executable(8inf334_TP3 main.cpp
         include/nodes/tasks/LireVariableNoeud.h
         include/Enregistreur.h
         source/Enregistreur.cpp
-        source/nodes/conditions/EgalConditionNoeud.cpp
-        include/nodes/conditions/EgalConditionNoeud.h
         source/nodes/tasks/AfficherTexteNoeud.cpp
         include/nodes/tasks/AfficherTexteNoeud.h
-        source/nodes/conditions/PlusPetitConditionNoeud.cpp
-        include/nodes/conditions/PlusPetitConditionNoeud.h
-        source/nodes/conditions/PlusGrandConditionNoeud.cpp
-        include/nodes/conditions/PlusGrandConditionNoeud.h
         include/nodes/tasks/IncrementerVariableNoeud.h
-        source/nodes/tasks/IncrementerVariableNoeud.cpp)
+        source/nodes/tasks/IncrementerVariableNoeud.cpp
+        include/strategies/IStrategie.h
+        include/strategies/EgalStrategie.h
+        source/strategies/EgalStrategie.cpp
+        include/strategies/PlusGrandStrategie.h
+        source/strategies/PlusGrandStrategie.cpp
+        include/strategies/PlusPetitStrategie.h
+        source/strategies/PlusPetitStrategie.cpp)
