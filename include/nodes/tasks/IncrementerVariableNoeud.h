@@ -13,7 +13,7 @@ namespace nodes::tasks
 	public:
 		IncrementerVariableNoeud();
 
-		INoeud* executer(Contexte& contexte) override;
+		void executer(Contexte& contexte) override;
 		void configurer(const nlohmann::basic_json<>& json) override;
 	};
 }

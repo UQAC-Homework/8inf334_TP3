@@ -6,7 +6,7 @@ nodes::tasks::IncrementerVariableNoeud::IncrementerVariableNoeud()
 	this->ajout = std::nullopt;
 }
 
-nodes::INoeud* nodes::tasks::IncrementerVariableNoeud::executer(Contexte& contexte)
+void nodes::tasks::IncrementerVariableNoeud::executer(Contexte& contexte)
 {
 	if (!this->cle.has_value())
 		throw std::runtime_error("No key was assigned.");

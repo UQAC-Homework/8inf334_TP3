@@ -8,7 +8,7 @@ nodes::tasks::EcrireVariableNoeud::EcrireVariableNoeud()
 	this->valeur = std::nullopt;
 }
 
-nodes::INoeud* nodes::tasks::EcrireVariableNoeud::executer(Contexte& contexte)
+void nodes::tasks::EcrireVariableNoeud::executer(Contexte& contexte)
 {
 	if (!this->cle.has_value())
 		throw std::runtime_error("No key was assigned.");

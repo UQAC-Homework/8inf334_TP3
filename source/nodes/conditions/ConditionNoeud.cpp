@@ -9,11 +9,15 @@ nodes::conditions::ConditionNoeud::ConditionNoeud()
 	this->enfantFauxId = std::nullopt;
 }
 
-nodes::INoeud* nodes::conditions::ConditionNoeud::executer(Contexte& contexte)
+void nodes::conditions::ConditionNoeud::executer(Contexte& contexte)
 {
 	const bool result = this->executerCondition(contexte);
+	const auto next = result ? this->enfantVrai : this->enfantFaux;
 
-	return result ? this->enfantVrai : this->enfantFaux;
+	if (next == nullptr)
+		return;
+
+	next->executer(contexte);
 }
 
 void nodes::conditions::ConditionNoeud::configurer(const nlohmann::basic_json<>& json)
@@ -26,10 +30,10 @@ void nodes::conditions::ConditionNoeud::lier(const std::unordered_map<std::strin
 {
 	if (!this->enfantVraiId.has_value())
 		throw std::runtime_error("No ID was assigned for the next 'TRUE' node.");
-	
+
 	if (!this->enfantFauxId.has_value())
 		throw std::runtime_error("No ID was assigned for the next 'FALSE' node.");
-	
+
 	const auto trueId = this->enfantVraiId.value();
 	const auto falseId = this->enfantFauxId.value();
 
@@ -38,7 +42,7 @@ void nodes::conditions::ConditionNoeud::lier(const std::unordered_map<std::strin
 
 	if (trueIt == noeuds.end())
 		throw std::runtime_error("Failed to find the node '" + trueId + "'.");
-	
+
 	if (falseIt == noeuds.end())
 		throw std::runtime_error("Failed to find the node '" + falseId + "'.");
 

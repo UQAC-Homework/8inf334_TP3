@@ -11,8 +11,8 @@ namespace nodes::tasks
 
 	public:
 		AfficherTexteNoeud();
-		
-		INoeud* executer(Contexte& contexte) override;
+
+		void executer(Contexte& contexte) override;
 		void configurer(const nlohmann::basic_json<>& json) override;
 	};
 }

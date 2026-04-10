@@ -6,9 +6,12 @@ nodes::tasks::TacheNoeud::TacheNoeud()
 	this->enfant = nullptr;
 }
 
-nodes::INoeud* nodes::tasks::TacheNoeud::executer(Contexte& contexte)
+void nodes::tasks::TacheNoeud::executer(Contexte& contexte)
 {
-	return this->enfant;
+	if (this->enfant == nullptr)
+		return;
+	
+	this->enfant->executer(contexte);
 }
 
 void nodes::tasks::TacheNoeud::configurer(const nlohmann::basic_json<>& json)

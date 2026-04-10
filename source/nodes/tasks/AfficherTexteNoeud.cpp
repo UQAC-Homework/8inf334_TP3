@@ -7,7 +7,7 @@ nodes::tasks::AfficherTexteNoeud::AfficherTexteNoeud()
 	this->texte = std::nullopt;
 }
 
-nodes::INoeud* nodes::tasks::AfficherTexteNoeud::executer(Contexte& contexte)
+void nodes::tasks::AfficherTexteNoeud::executer(Contexte& contexte)
 {
 	std::string text;
 

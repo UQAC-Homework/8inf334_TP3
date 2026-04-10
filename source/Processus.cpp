@@ -19,10 +19,10 @@ void Processus::mettreDepart(const std::string& id)
 
 void Processus::executer(Contexte contexte) const
 {
-	auto current = this->depart;
+	if (this->depart == nullptr)
+		return;
 
-	while (current != nullptr)
-		current = current->executer(contexte);
+	this->depart->executer(contexte);
 }
 
 void Processus::ajouterNoeud(const std::string& id, std::unique_ptr<nodes::INoeud>& node)

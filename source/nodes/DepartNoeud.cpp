@@ -6,9 +6,12 @@ nodes::DepartNoeud::DepartNoeud()
 	this->enfant = nullptr;
 }
 
-nodes::INoeud* nodes::DepartNoeud::executer(Contexte& contexte)
+void nodes::DepartNoeud::executer(Contexte& contexte)
 {
-	return this->enfant;
+	if (this->enfant == nullptr)
+		return;
+
+	this->enfant->executer(contexte);
 }
 
 void nodes::DepartNoeud::configurer(const nlohmann::basic_json<>& json)

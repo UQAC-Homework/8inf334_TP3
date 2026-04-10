@@ -12,7 +12,7 @@ namespace nodes
 		virtual ~INoeud() = default;
 
 		/// Executes this node
-		[[nodiscard]] virtual INoeud* executer(Contexte& contexte) = 0;
+		virtual void executer(Contexte& contexte) = 0;
 
 		/// Configures this node with the given parameters
 		virtual void configurer(const nlohmann::basic_json<>& json) = 0;
