@@ -7,6 +7,8 @@
 
 int main()
 {
+	constexpr int ITERATIONS = 10'000;
+
 	Enregistreur::initialiser(std::cout);
 
 	try
@@ -17,14 +19,14 @@ int main()
 
 		const auto start = std::chrono::high_resolution_clock::now();
 		
-		for (int i = 0; i < 1'000; ++i)
+		for (int i = 0; i < ITERATIONS; ++i)
 			workflow.executer({});
 
 		const auto end = std::chrono::high_resolution_clock::now();
 
-		const auto duration = duration_cast<std::chrono::microseconds>(end - start);
+		const auto duration = duration_cast<std::chrono::nanoseconds>(end - start);
 
-		std::cout << duration.count() / 1'000 << std::endl;
+		std::cout << "For " << ITERATIONS << " iterations, the average duration is: " << duration.count() / ITERATIONS << " ns." << std::endl;
 	}
 	catch (std::exception& e)
 	{
