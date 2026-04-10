@@ -14,7 +14,17 @@ int main()
 		const std::string path = "data/benchmark.json";
 
 		const auto workflow = factories::ProcessusFabrique::creerDepuisFichier(path);
-		workflow.executer();
+
+		const auto start = std::chrono::high_resolution_clock::now();
+		
+		for (int i = 0; i < 1'000; ++i)
+			workflow.executer({});
+
+		const auto end = std::chrono::high_resolution_clock::now();
+
+		const auto duration = duration_cast<std::chrono::microseconds>(end - start);
+
+		std::cout << duration.count() / 1'000 << std::endl;
 	}
 	catch (std::exception& e)
 	{

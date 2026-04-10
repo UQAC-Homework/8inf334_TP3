@@ -11,7 +11,7 @@
       "type": "write",
       "parameters": {
         "name": "limit",
-        "value": 1000000,
+        "value": 1000,
         "next": "2"
       }
     },
