@@ -8,7 +8,7 @@ namespace nodes::tasks
 	{
 	private:
 		std::optional<std::string> cle;
-		std::optional<CONTEXT_VALUE> valeur;
+		std::optional<std::size_t> valeur;
 
 	public:
 		EcrireVariableNoeud();

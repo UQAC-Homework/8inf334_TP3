@@ -1,7 +1,6 @@
 #include "../../../include/nodes/tasks/EcrireVariableNoeud.h"
 
 #include "../../../include/Enregistreur.h"
-#include "../../../include/utils/string.h"
 
 nodes::tasks::EcrireVariableNoeud::EcrireVariableNoeud()
 {
@@ -20,7 +19,7 @@ nodes::INoeud* nodes::tasks::EcrireVariableNoeud::executer(Contexte& contexte)
 	const auto key = this->cle.value();
 	const auto value = this->valeur.value();
 
-	Enregistreur::enregistrer("Writing '" + utils::string::to_string(value) + "' to '" + key + "'.");
+	Enregistreur::enregistrer("Writing '" + std::to_string(value) + "' to '" + key + "'.");
 	contexte.mettreValeur(this->cle.value(), this->valeur.value());
 	return TacheNoeud::executer(contexte);
 }
@@ -30,5 +29,5 @@ void nodes::tasks::EcrireVariableNoeud::configurer(const nlohmann::basic_json<>&
 	TacheNoeud::configurer(json);
 
 	this->cle = json.at("name").get<std::string>();
-	this->valeur = json.at("value").get<std::string>();
+	this->valeur = json.at("value").get<std::size_t>();
 }

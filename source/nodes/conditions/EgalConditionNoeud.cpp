@@ -9,7 +9,7 @@ bool nodes::conditions::EgalConditionNoeud::executerCondition(Contexte& contexte
 
 	for (auto it = this->cles.begin() + 1; it != this->cles.end(); ++it)
 	{
-		auto key = *it;
+		const auto& key = *it;
 
 		if (!contexte.contientCle(key))
 			return false;
@@ -34,11 +34,11 @@ void nodes::conditions::EgalConditionNoeud::configurer(const nlohmann::basic_jso
 
 	ConditionNoeud::configurer(json);
 
-	const auto namesProp = json.at(NAMES_KEY);
+	const auto& namesProp = json.at(NAMES_KEY);
 
 	if (!namesProp.is_array())
 		throw std::invalid_argument("The property '" + std::string(NAMES_KEY) + "' must be an array.");
 	
-	for (auto item : namesProp.items())
+	for (const auto& item : namesProp.items())
 		this->cles.push_back(item.value().get<std::string>());
 }

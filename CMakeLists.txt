@@ -30,7 +30,6 @@ add_executable(8inf334_TP3 main.cpp
         include/nodes/tasks/LireVariableNoeud.h
         include/Enregistreur.h
         source/Enregistreur.cpp
-        include/utils/string.h
         source/nodes/conditions/EgalConditionNoeud.cpp
         include/nodes/conditions/EgalConditionNoeud.h
         source/nodes/tasks/AfficherTexteNoeud.cpp

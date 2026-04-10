@@ -9,12 +9,12 @@ Contexte::Contexte()
 
 Contexte::~Contexte() = default;
 
-void Contexte::mettreValeur(const std::string& cle, CONTEXT_VALUE valeur)
+void Contexte::mettreValeur(const std::string& cle, std::size_t valeur)
 {
-	this->donnees[cle] = std::move(valeur);
+	this->donnees[cle] = valeur;
 }
 
-CONTEXT_VALUE Contexte::obtenirValeur(const std::string& cle) const
+std::size_t Contexte::obtenirValeur(const std::string& cle) const
 {
 	return this->donnees.at(cle);
 }
