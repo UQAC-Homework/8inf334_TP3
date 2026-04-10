@@ -37,7 +37,7 @@
       "parameters": {
         "name": "counter",
         "value": 1,
-        "next": "5"
+        "next": "3"
       }
     },
     "5": {

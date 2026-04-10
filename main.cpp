@@ -11,13 +11,10 @@ int main()
 
 	try
 	{
-		const std::string path = "data/conditions.json";
+		const std::string path = "data/benchmark.json";
 
 		const auto workflow = factories::ProcessusFabrique::creerDepuisFichier(path);
-		Contexte contexte;
-		contexte.mettreValeur("ma_variable", std::string("123321"));
-
-		workflow.executer(contexte);
+		workflow.executer();
 	}
 	catch (std::exception& e)
 	{
